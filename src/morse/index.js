@@ -58,6 +58,25 @@ const MORSE_CODE = {
 
 Object.freeze(MORSE_CODE);
 
-function morse(text) {}
+function morse(text) {
+  
+  let array = text.split(' '); //convert MORSE CODE text to a MORSE CODE array
+  let string = ''; // declare an empty string
 
+  //Loop through each MORSE CODE to get the translation of each text
+  for(let i=0; i<array.length; i++){
+    // iReplace Undefined MORSE Translation with an empty string
+    if(MORSE_CODE[array[i]] == undefined){
+      MORSE_CODE[array[i]] = " ";
+    }
+    
+    // Concatenate Empty String and the translated MORSE CODE
+    string += MORSE_CODE[array[i]];
+  }
+
+  console.log(string);
+  return string;
+}
+
+morse("...-..- ..... .-.-.- ----- --...   .--. . .-.    -... --- - - .-.. .")
 module.exports = morse;
